@@ -163,7 +163,14 @@ class _BottomBarSalomonState extends State<BottomBarSalomon> with TickerProvider
                 widthFactor: widthFactor,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 24, left: 20),
-                  child: BuildIcon(
+                  child:
+                  (item.AssetImage != null)?
+                  Image(
+                    image : AssetImage(item.AssetImage!),
+                    width: widget.iconSize,
+                    height: widget.iconSize,
+                  ):
+                  BuildIcon(
                     item: item,
                     iconColor: itemColor,
                     iconSize: widget.iconSize,
@@ -173,6 +180,12 @@ class _BottomBarSalomonState extends State<BottomBarSalomon> with TickerProvider
               ),
             ],
             if (item.title is String && item.title != '') ...[
+              (item.AssetImage != null)?
+              Image(
+                image : AssetImage(item.AssetImage!),
+                width: widget.iconSize,
+                height: widget.iconSize,
+              ):
               BuildIcon(
                 item: item,
                 iconColor: itemColor,

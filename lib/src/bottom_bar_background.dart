@@ -122,6 +122,12 @@ class _BottomBarBackgroundState extends State<BottomBarBackground> with TickerPr
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          (item.AssetImage != null)?
+          Image(
+            image : AssetImage(item.AssetImage!),
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ):
           BuildIcon(
             item: item,
             iconColor: color,

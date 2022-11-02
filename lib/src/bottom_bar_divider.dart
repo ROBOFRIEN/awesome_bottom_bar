@@ -155,6 +155,12 @@ class _BottomBarDividerState extends State<BottomBarDivider> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          (item.AssetImage != null)?
+          Image(
+            image : AssetImage(item.AssetImage!),
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ):
           BuildIcon(
             item: item,
             iconColor: itemColor,

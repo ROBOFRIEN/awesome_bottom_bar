@@ -184,6 +184,12 @@ class _BottomBarCreativeState extends State<BottomBarCreative> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          (item.AssetImage != null)?
+          Image(
+            image : AssetImage(item.AssetImage!),
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ):
           BuildIcon(
             item: item,
             iconColor: itemColor,
@@ -218,7 +224,14 @@ class _BottomBarCreativeState extends State<BottomBarCreative> {
         height: size,
         color: background,
         elevation: widget.highlightStyle?.elevation ?? 0,
-        child: BuildIcon(
+        child:
+        (item.AssetImage != null)?
+        Image(
+          image : AssetImage(item.AssetImage!),
+          width: 22,
+          height: 22,
+        ):
+        BuildIcon(
           item: item,
           iconColor: colorIcon,
           iconSize: 22,
@@ -236,7 +249,14 @@ class _BottomBarCreativeState extends State<BottomBarCreative> {
         height: size,
         width: size,
         alignment: Alignment.center,
-        child: BuildIcon(
+        child:
+        (item.AssetImage != null)?
+        Image(
+          image : AssetImage(item.AssetImage!),
+          width: 50,
+          height: 50,
+        ):
+        BuildIcon(
           item: item,
           iconColor: colorIcon,
           iconSize: 22,

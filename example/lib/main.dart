@@ -24,6 +24,7 @@ const List<TabItem> items = [
   ),
   TabItem(
     icon: Icons.favorite_border,
+    AssetImage: 'assets/main_icon.png',
     title: 'Wishlist',
   ),
   TabItem(
@@ -349,8 +350,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     isFloating: true,
                     highlightStyle: HighlightStyle(
                       sizeLarge: true,
-                      background: Colors.red,
-                      elevation: 3,
+                      background: Colors.transparent,
+                      elevation: 0,
                     ),
                   ),
                 ),

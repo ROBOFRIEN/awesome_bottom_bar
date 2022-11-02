@@ -126,6 +126,12 @@ class _BottomBarInspiredInsideState extends State<BottomBarInspiredInside> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          (item.AssetImage != null)?
+          Image(
+            image : AssetImage(item.AssetImage!),
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ):
           BuildIcon(
             item: item,
             iconColor: itemColor(),
@@ -156,7 +162,14 @@ class _BottomBarInspiredInsideState extends State<BottomBarInspiredInside> {
             height: sizeInside,
             decoration: BoxDecoration(color: widget.chipStyle?.background!, shape: BoxShape.circle),
             alignment: Alignment.center,
-            child: BuildIcon(
+            child:
+            (item.AssetImage != null)?
+            Image(
+              image : AssetImage(item.AssetImage!),
+              width: iconSize,
+              height: iconSize,
+            ):
+            BuildIcon(
               item: item,
               iconColor: widget.fixed ? widget.colorSelected : itemColor,
               iconSize: iconSize,
@@ -169,7 +182,14 @@ class _BottomBarInspiredInsideState extends State<BottomBarInspiredInside> {
             height: sizeInside,
             cornerRadius: 8,
             color: widget.chipStyle?.background ?? Colors.blue,
-            child: BuildIcon(
+            child:
+            (item.AssetImage != null)?
+            Image(
+              image : AssetImage(item.AssetImage!),
+              width: iconSize,
+              height: iconSize,
+            ):
+            BuildIcon(
               item: item,
               iconColor: widget.fixed ? widget.colorSelected : itemColor,
               iconSize: iconSize,

@@ -131,6 +131,12 @@ class _BottomBarDefaultState extends State<BottomBarDefault> with TickerProvider
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          (item.AssetImage != null)?
+          Image(
+            image : AssetImage(item.AssetImage!),
+            width: widget.iconSize,
+            height: widget.iconSize,
+          ):
           BuildIcon(
             item: item,
             iconColor: itemColor,
