@@ -32,8 +32,12 @@ class _CreativeState extends State<Creative> {
         highlightStyle: widget.highlightStyle,
         isFloating: widget.isFloating ?? false,
         onTap: (int index) => setState(() {
+          print("onTabbed - " + index.toString());
           visit = index;
         }),
+        onClicked: (index) {
+          print("onClicked - " + index.toString());
+        },
       ),
     );
   }

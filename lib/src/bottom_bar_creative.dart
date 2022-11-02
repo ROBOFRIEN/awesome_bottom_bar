@@ -19,6 +19,7 @@ class BottomBarCreative extends StatefulWidget {
   /// item
   final int indexSelected;
   final Function(int index)? onTap;
+  final Function(int index)? onClicked;
 
   final Color color;
   final Color colorSelected;
@@ -46,6 +47,7 @@ class BottomBarCreative extends StatefulWidget {
     this.borderRadius,
     this.indexSelected = 0,
     this.onTap,
+    this.onClicked,
     required this.color,
     required this.colorSelected,
     this.iconSize = 22,
@@ -102,7 +104,13 @@ class _BottomBarCreativeState extends State<BottomBarCreative> {
                   TabItem item = widget.items[index];
                   if (visit == index) {
                     Widget highlightWidget = GestureDetector(
-                      onTap: index != widget.indexSelected ? () => widget.onTap?.call(visit) : null,
+                      // onTap: index != widget.indexSelected ? () => widget.onTap?.call(visit) : null,
+                      onTap: () {
+                        if(index != widget.indexSelected){
+                          widget.onTap?.call(visit);
+                        }
+                        widget.onClicked?.call(visit);
+                      },
                       child: buildHighLight(context, item: item, color: widget.colorSelected, size: sizeHighlight),
                     );
                     return !widget.isFloating
@@ -128,7 +136,13 @@ class _BottomBarCreativeState extends State<BottomBarCreative> {
                   }
                   return Expanded(
                     child: InkWell(
-                      onTap: index != widget.indexSelected ? () => widget.onTap?.call(index) : null,
+                      onTap: () {
+                        if(index != widget.indexSelected){
+                          widget.onTap?.call(index);
+                        }
+                        widget.onClicked?.call(index);
+                      },
+                      // onTap: index != widget.indexSelected ? () => widget.onTap?.call(index) : null,
                       child: widget.items.length > index
                           ? buildItem(
                               context,
